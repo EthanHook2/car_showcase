@@ -4,18 +4,28 @@ import Image from "next/image";
 import { CustomButtonProps } from "@/types";
 
 function CustomButton({
-    title,
-    containerStyles,
-    handleClick
+  title,
+  containerStyles,
+  handleClick,
+  textStyles,
+  rightIcon,
+  btnType
 }: CustomButtonProps) {
   return (
     <button
       disabled={false}
-      type={"button"}
+      type={btnType || "button"}
       className={`custom-btn ${containerStyles}`}
       onClick={handleClick}
     >
-      <span className={`flex-1`}>{title}</span>
+      <span className={`flex-1 ${textStyles} `}>
+        {title}
+      </span>
+      {rightIcon && (
+        <div className="relative w-6 h-6">
+          <Image src={rightIcon} alt="right-icon" fill className="object-contain" />
+        </div>
+      )}
     </button>
   );
 }
