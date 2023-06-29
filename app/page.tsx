@@ -6,8 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import ShowMore from "@/components/ShowMore";
 import { fuels, yearsOfProduction } from "@/constants";
 import { HomeProps } from "@/types";
-import { fetchCars } from "@/utils";
-import Image from "next/image";
+import { fetchCars } from "@/utils";import { Analytics } from '@vercel/analytics/react';
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
